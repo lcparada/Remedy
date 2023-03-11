@@ -1,20 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, ScrollView } from "react-native";
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+
+import MainScreen from "./src/components/mainScreen";
+
+import {
+  useFonts,
+  Lexend_300Light,
+  Lexend_700Bold,
+  Lexend_400Regular,
+  Lexend_600SemiBold,
+} from "@expo-google-fonts/lexend";
 
 export default function App() {
+  let [fontsLoaded] = useFonts({
+    Lexend_300Light,
+    Lexend_700Bold,
+    Lexend_400Regular,
+    Lexend_600SemiBold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
+  const Tab = createBottomTabNavigator();
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView>
+      <ScrollView decelerationRate="normal">
+        <MainScreen />
+      </ScrollView>
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
