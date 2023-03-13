@@ -2,7 +2,6 @@ import { SafeAreaView, ScrollView } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-
 import {
   useFonts,
   Lexend_300Light,
@@ -10,6 +9,8 @@ import {
   Lexend_400Regular,
   Lexend_600SemiBold,
 } from "@expo-google-fonts/lexend";
+
+
 import HomeScreen from "./src/screens/HomeScreen";
 
 export default function App() {
@@ -27,8 +28,11 @@ export default function App() {
   const Tab = createBottomTabNavigator();
 
   return (
-    <NavigationContainer>
-      <HomeScreen />
-    </NavigationContainer>
+    
+      <NavigationContainer>
+        <HomeScreen />
+        
+      </NavigationContainer>
+     
   );
 }

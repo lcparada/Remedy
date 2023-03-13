@@ -1,116 +1,40 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { SafeAreaView, View, Text, FlatList } from "react-native";
+import moment from "moment";
+
 import style from "./style";
 import { AntDesign } from "@expo/vector-icons";
+
 import Calendar from "../../components/Calendar";
+import FloatBottom from "../../components/FloatBottom";
 
 const pills = [
   {
     name: "Amoxilicina",
     dosage: 875,
     unitDosage: "mg",
-    takeAt: new Date().getTime(),
+    takeAt: moment().add(10, "minute").subtract(3, "hour"),
     isTake: false,
     id: 1,
   },
   {
-    name: "Amoxilicina1",
+    name: "Amoxilicina",
     dosage: 875,
     unitDosage: "mg",
-    takeAt: new Date().getTime(),
+    takeAt: new Date().getDate(),
     isTake: false,
     id: 2,
   },
   {
-    name: "Amoxilicina2",
+    name: "Amoxilicina",
     dosage: 875,
     unitDosage: "mg",
-    takeAt: new Date().getTime(),
+    takeAt: new Date().getDate(),
     isTake: false,
     id: 3,
   },
-  {
-    name: "Amoxilicina3",
-    dosage: 875,
-    unitDosage: "mg",
-    takeAt: new Date().getTime(),
-    isTake: false,
-    id: 4,
-  },
-  {
-    name: "Amoxilicina4",
-    dosage: 875,
-    unitDosage: "mg",
-    takeAt: new Date().getTime(),
-    isTake: false,
-    id: 5,
-  },
-  {
-    name: "Amoxilicina5",
-    dosage: 875,
-    unitDosage: "mg",
-    takeAt: new Date().getTime(),
-    isTake: false,
-    id: 6,
-  },
-  {
-    name: "Amoxilicina6",
-    dosage: 875,
-    unitDosage: "mg",
-    takeAt: new Date().getTime(),
-    isTake: false,
-    id: 7,
-  }, {
-    name: "Amoxilicina7",
-    dosage: 875,
-    unitDosage: "mg",
-    takeAt: new Date().getTime(),
-    isTake: false,
-    id: 8,
-  },
-  {
-    name: "Amoxilicina7",
-    dosage: 875,
-    unitDosage: "mg",
-    takeAt: new Date().getTime(),
-    isTake: false,
-    id: 9,
-  },
-  {
-    name: "Amoxilicina7",
-    dosage: 875,
-    unitDosage: "mg",
-    takeAt: new Date().getTime(),
-    isTake: false,
-    id: 10,
-  },
-  {
-    name: "Amoxilicina7",
-    dosage: 875,
-    unitDosage: "mg",
-    takeAt: new Date().getTime(),
-    isTake: false,
-    id:11,
-  },
-  {
-    name: "Amoxilicina7",
-    dosage: 875,
-    unitDosage: "mg",
-    takeAt: new Date().getTime(),
-    isTake: false,
-    id: 12,
-  },
-  {
-    name: "Amoxilicina7",
-    dosage: 875,
-    unitDosage: "mg",
-    takeAt: new Date().getTime(),
-    isTake: false,
-    id: 13,
-  },
 ];
-
 
 export default function HomeScreen() {
   return (
@@ -129,7 +53,7 @@ export default function HomeScreen() {
           <Text style={style.mainText}>Hoje você tem </Text>
           <Text style={style.eventTextEvent}>3 eventos pendentes.</Text>
         </View>
-      </View> 
+      </View>
 
       <View style={style.content}>
         <Calendar />
@@ -142,13 +66,52 @@ export default function HomeScreen() {
               <View style={style.pill}>
                 <View>
                   <Text style={style.descriptionPill}>{item.name}</Text>
-                  <Text style={style.subDescriptionPill}>875 mg</Text>
+                  <Text style={style.subDescriptionPill}>
+                    {item.dosage} {item.unitDosage}
+                  </Text>
                 </View>
 
-                <View style={style.timePill}>
-                  <Text style={style.statusTextSucess}>Concluído</Text>
-                  <AntDesign name="checkcircleo" size={20} color="#0B6E4F" />
-                </View>
+                {item.isTake ? (
+                  <View style={style.timePill}>
+                    <Text style={style.statusTextSucess}>Concluído</Text>/
+                    <AntDesign name="checkcircleo" size={20} color="#0B6E4F" />
+                  </View>
+                ) : item.isTake === false &&
+                  moment(item.takeAt).unix() >=
+                    moment().subtract(3, "hours").unix() &&
+                  moment(item.takeAt).unix() <=
+                    moment().subtract(3, "hours").add(10, "minutes").unix() ? (
+                  <View style={style.timePill}>
+                    <Text style={style.statusTextSoon}>
+                      Em{" "}
+                      {moment(item.takeAt).diff(
+                        moment().subtract(3, "hour"),
+                        "minutes"
+                      ) + 1}{" "}
+                      minutos
+                    </Text>
+                    <AntDesign name="clockcircleo" size={20} color="#F6D664" />
+                  </View>
+                ) : item.isTake === false &&
+                  moment()
+                    .subtract(3, "hours")
+                    .isAfter(
+                      moment(item.takeAt)
+                        .subtract(3, "hours")
+                        .subtract(5, "minutes")
+                    ) ? (
+                  <View style={style.timePill}>
+                    <Text style={style.statusTextLate}>
+                      Atrasado {`\n`} há 5 minutos
+                    </Text>
+                    <AntDesign
+                      name="exclamationcircleo"
+                      size={20}
+                      color="#721817"
+                      style={{ marginTop: 10 }}
+                    />
+                  </View>
+                ) : null }
               </View>
             );
           }}
@@ -246,6 +209,7 @@ export default function HomeScreen() {
           </View>
         </View>*/}
       </View>
+      <FloatBottom/>
     </SafeAreaView>
   );
 }
