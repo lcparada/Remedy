@@ -1,9 +1,7 @@
 import { SafeAreaView, ScrollView } from "react-native";
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-
-import MainScreen from "./src/components/mainScreen";
 
 import {
   useFonts,
@@ -12,6 +10,7 @@ import {
   Lexend_400Regular,
   Lexend_600SemiBold,
 } from "@expo-google-fonts/lexend";
+import HomeScreen from "./src/screens/HomeScreen";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -28,10 +27,8 @@ export default function App() {
   const Tab = createBottomTabNavigator();
 
   return (
-    <SafeAreaView>
-      <ScrollView decelerationRate="normal">
-        <MainScreen />
-      </ScrollView>
-    </SafeAreaView>
+    <NavigationContainer>
+      <HomeScreen />
+    </NavigationContainer>
   );
 }
