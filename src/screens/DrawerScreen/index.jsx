@@ -1,12 +1,9 @@
-import React from "react";
-import {Text} from "react-native"
-
-import styles from "./styles";
-
+import React from "react"
+import { Text, View } from "react-native"
 
 export default function DrawerScreen() {
-
-  return(
-    <Text>Ola</Text>
+  
+  return( 
+  <View><Text> ola</Text></View>
   )
 }
