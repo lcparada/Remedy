@@ -111,7 +111,7 @@ export default function HomeScreen() {
                       style={{ marginTop: 10 }}
                     />
                   </View>
-                ) : null }
+                ) : null}
               </View>
             );
           }}
@@ -209,7 +209,7 @@ export default function HomeScreen() {
           </View>
         </View>*/}
       </View>
-      <FloatBottom/>
+      <FloatBottom />
     </SafeAreaView>
   );
 }

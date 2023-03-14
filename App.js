@@ -1,6 +1,6 @@
-import { SafeAreaView, ScrollView } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import React from "react";
+import AppRoutes from "./src/routes/app.routes";
+
 
 import {
   useFonts,
@@ -11,7 +11,6 @@ import {
 } from "@expo-google-fonts/lexend";
 
 
-import HomeScreen from "./src/screens/HomeScreen";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -25,14 +24,8 @@ export default function App() {
     return null;
   }
 
-  const Tab = createBottomTabNavigator();
 
   return (
-    
-      <NavigationContainer>
-        <HomeScreen />
-        
-      </NavigationContainer>
-     
+    <AppRoutes />
   );
 }

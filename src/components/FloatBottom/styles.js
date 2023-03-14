@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     position: "absolute",
     right: 20,
-    bottom: 106,
+    bottom: 30,
   },
 
   button: {
