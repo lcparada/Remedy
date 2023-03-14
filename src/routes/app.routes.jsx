@@ -1,10 +1,11 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
+
 import { Feather } from "@expo/vector-icons";
 
 import HomeScreen from "../screens/HomeScreen";
 import ReportScreen from "../screens/ReportScreen";
-import { NavigationContainer } from "@react-navigation/native";
 import DrawerScreen from "../screens/DrawerScreen";
 
 const Tab = createBottomTabNavigator();
@@ -27,9 +28,22 @@ export default function AppRoutes() {
           options={{
             tabBarIcon: ({ color, size, focused }) => {
               if (focused) {
-                return <Feather name="calendar" size={26} color={color} />;
+                return <Feather name="calendar" size={size} color={color} />;
               } else {
-                return <Feather name="calendar" size={26} color="black"/>;
+                return <Feather name="calendar" size={size} color="black"/>;
+              }
+            },
+          }}
+        />
+        <Tab.Screen
+          name="relatorio"
+          component={ReportScreen}
+          options={{
+            tabBarIcon: ({ color, size, focused }) => {
+              if (focused) {
+                return <Feather name="menu" size={size} color={color} />;
+              } else {
+                return <Feather name="menu" size={size} color="black"/>;
               }
             },
           }}
@@ -40,22 +54,9 @@ export default function AppRoutes() {
           options={{
             tabBarIcon: ({ color, size, focused }) => {
               if (focused) {
-                return <Feather name="archive" size={26} color={color} />;
+                return <Feather name="archive" size={size} color={color} />;
               } else {
-                return <Feather name="archive" size={26} color="black"/>;
-              }
-            },
-          }}
-        />
-        <Tab.Screen
-          name="relatório"
-          component={ReportScreen}
-          options={{
-            tabBarIcon: ({ color, size, focused }) => {
-              if (focused) {
-                return <Feather name="menu" size={26} color={color} />;
-              } else {
-                return <Feather name="menu" size={26} color="black"/>;
+                return <Feather name="archive" size={size} color="black"/>;
               }
             },
           }}
