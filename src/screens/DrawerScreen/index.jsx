@@ -6,6 +6,8 @@ import { Feather } from "@expo/vector-icons";
 
 import styles from "./styles";
 
+import FloatBottom from "../../components/FloatBottom";
+
 export default function DrawerScreen() {
   const [screen, setScreen] = React.useState(0);
 
@@ -143,6 +145,7 @@ export default function DrawerScreen() {
           </View>
         </View>
       )}
+      <FloatBottom />
     </SafeAreaView>
   );
 }
