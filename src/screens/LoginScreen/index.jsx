@@ -15,9 +15,12 @@ import { Ionicons } from "@expo/vector-icons";
 import styles from "./styles";
 
 export default function LoginScreen() {
-  const [showPasswordOrNot, setShowPasswordOrNot] =
-    React.useState("eye-off-outline");
+
+  const [showPasswordOrNot, setShowPasswordOrNot] = React.useState("eye-off-outline");
   const [showDigits, setshowDigits] = React.useState(true);
+  
+  const [userName, setUserName] = React.useState(null)
+  const [password, setPassword] = React.useState(null)
 
   function showPassword() {
     if (showPasswordOrNot === "eye-off-outline") {
@@ -43,7 +46,7 @@ export default function LoginScreen() {
 
         <View style={styles.containerInput}>
           <View style={styles.inputUser}>
-            <TextInput style={styles.input} placeholder="Usuário"></TextInput>
+            <TextInput style={styles.input} placeholder="Usuário" onChangeText={setUserName} value={userName}></TextInput>
             <Ionicons name="person-outline" size={24} color="#929292" />
           </View>
 
@@ -52,6 +55,8 @@ export default function LoginScreen() {
               style={styles.input}
               placeholder="Senha"
               secureTextEntry={showDigits}
+              onChangeText={setPassword}
+              value={password}
             ></TextInput>
             <TouchableOpacity onPress={() => showPassword()}>
               <Ionicons name={showPasswordOrNot} size={24} color="#929292" />
