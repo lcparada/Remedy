@@ -1,5 +1,6 @@
 import React from "react";
-import AppRoutes from "./src/routes/app.routes";
+
+import LoginScreen from "./src/screens/LoginScreen";
 
 
 import {
@@ -26,6 +27,7 @@ export default function App() {
 
 
   return (
-    <AppRoutes />
+
+    <LoginScreen />
   );
 }
