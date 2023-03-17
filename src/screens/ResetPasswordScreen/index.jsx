@@ -44,7 +44,6 @@ export default function ResetPasswordScreen() {
                     name="pill"
                     size={77}
                     color="#68A6DA"
-                    style={{opacity: 0.5}}
                 />
                 </View>
 
