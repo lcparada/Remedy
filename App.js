@@ -1,7 +1,6 @@
 import React from "react";
 
-import LoginScreen from "./src/screens/LoginScreen";
-
+import LoginScreenRoutes from "./src/routes/LoginScreen.routes"
 
 import {
   useFonts,
@@ -10,8 +9,6 @@ import {
   Lexend_400Regular,
   Lexend_600SemiBold,
 } from "@expo-google-fonts/lexend";
-
-
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -25,9 +22,7 @@ export default function App() {
     return null;
   }
 
-
   return (
-
-    <LoginScreen />
-  );
+    <LoginScreenRoutes/>
+  )
 }

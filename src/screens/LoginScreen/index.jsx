@@ -7,6 +7,7 @@ import {
   Text,
   Keyboard,
   Pressable,
+  StatusBar,
 } from "react-native";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -14,13 +15,13 @@ import { Ionicons } from "@expo/vector-icons";
 
 import styles from "./styles";
 
-export default function LoginScreen() {
-
-  const [showPasswordOrNot, setShowPasswordOrNot] = React.useState("eye-off-outline");
+export default function LoginScreen({ navigation }) {
+  const [showPasswordOrNot, setShowPasswordOrNot] =
+    React.useState("eye-off-outline");
   const [showDigits, setshowDigits] = React.useState(true);
-  
-  const [userName, setUserName] = React.useState(null)
-  const [password, setPassword] = React.useState(null)
+
+  const [userName, setUserName] = React.useState(null);
+  const [password, setPassword] = React.useState(null);
 
   function showPassword() {
     if (showPasswordOrNot === "eye-off-outline") {
@@ -34,6 +35,7 @@ export default function LoginScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar style="auto" />
       <Pressable onPress={() => Keyboard.dismiss()}>
         <View style={styles.logo}>
           <MaterialCommunityIcons
@@ -46,7 +48,12 @@ export default function LoginScreen() {
 
         <View style={styles.containerInput}>
           <View style={styles.inputUser}>
-            <TextInput style={styles.input} placeholder="Usuário" onChangeText={setUserName} value={userName}></TextInput>
+            <TextInput
+              style={styles.input}
+              placeholder="Usuário"
+              onChangeText={setUserName}
+              value={userName}
+            ></TextInput>
             <Ionicons name="person-outline" size={24} color="#929292" />
           </View>
 
@@ -76,7 +83,7 @@ export default function LoginScreen() {
 
         <View style={styles.register}>
           <Text style={styles.subTextRegister}>Ainda não tem conta?</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("Register")}>
             <Text style={styles.textRegister}>Registre-se!</Text>
           </TouchableOpacity>
         </View>

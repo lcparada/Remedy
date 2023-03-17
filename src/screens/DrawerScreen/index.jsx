@@ -1,6 +1,11 @@
 import React from "react";
-import { Text, View, TouchableOpacity } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  StatusBar,
+  SafeAreaView,
+} from "react-native";
 
 import { Feather } from "@expo/vector-icons";
 
@@ -14,8 +19,8 @@ export default function DrawerScreen() {
   const selectText = {
     fontSize: 18,
     fontFamily: "Lexend_600SemiBold",
-    color: "#68A6DA"
-  }
+    color: "#68A6DA",
+  };
 
   function handleScreenPrescription() {
     if (screen !== 0) {
@@ -31,26 +36,33 @@ export default function DrawerScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar style="auto" />
       <View style={styles.containerMainText}>
         <Text style={styles.mainText}>Minha Gaveta</Text>
       </View>
 
       <View style={styles.containerButtons}>
         <TouchableOpacity onPress={() => handleScreenPrescription()}>
-          <Text
-            style={screen === 0 ? selectText : styles.textButton }
-          >
+          <Text style={screen === 0 ? selectText : styles.textButton}>
             {" "}
-            <Feather name="paperclip" size={24} color={screen === 0 ? "#68A6DA" : "black"} /> Receituários
+            <Feather
+              name="paperclip"
+              size={24}
+              color={screen === 0 ? "#68A6DA" : "black"}
+            />{" "}
+            Receituários
           </Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => handleScreenMedicine()}>
-          <Text
-            style={screen === 1 ? selectText : styles.textButton }
-          >
+          <Text style={screen === 1 ? selectText : styles.textButton}>
             {" "}
-            <Feather name="package" size={24} color={screen === 1 ? "#68A6DA" : "black"} /> Medicamentos
+            <Feather
+              name="package"
+              size={24}
+              color={screen === 1 ? "#68A6DA" : "black"}
+            />{" "}
+            Medicamentos
           </Text>
         </TouchableOpacity>
       </View>

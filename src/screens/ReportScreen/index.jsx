@@ -1,7 +1,5 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { Text, View, FlatList } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { Text, View, FlatList, SafeAreaView, StatusBar } from "react-native";
 import moment from "moment";
 
 import { AntDesign } from "@expo/vector-icons";
@@ -49,11 +47,9 @@ const pills = [
     isTake: false,
     id: 5,
   },
-  
 ];
 
 export default function ReportScreen() {
-  
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
@@ -87,65 +83,65 @@ export default function ReportScreen() {
       </View>
 
       <FlatList
-          data={pills}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => {
-            return (
-              <View style={styles.pill}>
-                <View>
-                  <Text style={styles.descriptionPill}>{item.name}</Text>
-                  <Text style={styles.subDescriptionPill}>
-                    {item.dosage} {item.unitDosage}
-                  </Text>
-                </View>
-
-                {item.isTake ? (
-                  <View style={styles.timePill}>
-                    <Text style={styles.statusTextSucess}>Concluído</Text>/
-                    <AntDesign name="checkcircleo" size={20} color="#0B6E4F" />
-                  </View>
-                ) : item.isTake === false &&
-                  moment(item.takeAt).unix() >=
-                    moment().subtract(3, "hours").unix() &&
-                  moment(item.takeAt).unix() <=
-                    moment().subtract(3, "hours").add(10, "minutes").unix() ? (
-                  <View style={styles.timePill}>
-                    <Text style={styles.statusTextSoon}>
-                      Em{" "}
-                      {moment(item.takeAt).diff(
-                        moment().subtract(3, "hour"),
-                        "minutes"
-                      ) + 1}{" "}
-                      minutos
-                    </Text>
-                    <AntDesign name="clockcircleo" size={20} color="#F6D664" />
-                  </View>
-                ) : item.isTake === false &&
-                  moment()
-                    .subtract(3, "hours")
-                    .isAfter(
-                      moment(item.takeAt)
-                        .subtract(3, "hours")
-                        .subtract(5, "minutes")
-                    ) ? (
-                  <View style={styles.timePill}>
-                    <Text style={styles.statusTextLate}>
-                      Atrasado {`\n`} há 5 minutos
-                    </Text>
-                    <AntDesign
-                      name="exclamationcircleo"
-                      size={20}
-                      color="#721817"
-                      style={{ marginTop: 10 }}
-                    />
-                  </View>
-                ) : null}
+        data={pills}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => {
+          return (
+            <View style={styles.pill}>
+              <View>
+                <Text style={styles.descriptionPill}>{item.name}</Text>
+                <Text style={styles.subDescriptionPill}>
+                  {item.dosage} {item.unitDosage}
+                </Text>
               </View>
-            );
-          }}
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ paddingBottom: 35 }}
-        />
+
+              {item.isTake ? (
+                <View style={styles.timePill}>
+                  <Text style={styles.statusTextSucess}>Concluído</Text>/
+                  <AntDesign name="checkcircleo" size={20} color="#0B6E4F" />
+                </View>
+              ) : item.isTake === false &&
+                moment(item.takeAt).unix() >=
+                  moment().subtract(3, "hours").unix() &&
+                moment(item.takeAt).unix() <=
+                  moment().subtract(3, "hours").add(10, "minutes").unix() ? (
+                <View style={styles.timePill}>
+                  <Text style={styles.statusTextSoon}>
+                    Em{" "}
+                    {moment(item.takeAt).diff(
+                      moment().subtract(3, "hour"),
+                      "minutes"
+                    ) + 1}{" "}
+                    minutos
+                  </Text>
+                  <AntDesign name="clockcircleo" size={20} color="#F6D664" />
+                </View>
+              ) : item.isTake === false &&
+                moment()
+                  .subtract(3, "hours")
+                  .isAfter(
+                    moment(item.takeAt)
+                      .subtract(3, "hours")
+                      .subtract(5, "minutes")
+                  ) ? (
+                <View style={styles.timePill}>
+                  <Text style={styles.statusTextLate}>
+                    Atrasado {`\n`} há 5 minutos
+                  </Text>
+                  <AntDesign
+                    name="exclamationcircleo"
+                    size={20}
+                    color="#721817"
+                    style={{ marginTop: 10 }}
+                  />
+                </View>
+              ) : null}
+            </View>
+          );
+        }}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: 35 }}
+      />
     </SafeAreaView>
   );
 }

@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
   input: {
     width: 265,
     height: 40,
+    fontFamily: "Lexend_300Light"
   },
   containerInput: {
     flexDirection: "column",

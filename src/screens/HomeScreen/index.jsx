@@ -1,6 +1,5 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { SafeAreaView, View, Text, FlatList } from "react-native";
+import { SafeAreaView, View, Text, FlatList, StatusBar } from "react-native";
 import moment from "moment";
 
 import style from "./style";
