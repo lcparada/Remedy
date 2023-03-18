@@ -14,7 +14,7 @@ import styles from "./styles";
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-export default function ResetPasswordScreen() {
+export default function ResetPasswordScreen({navigation}) {
     return (
         <SafeAreaView style={styles.container} >
             <StatusBar style="auto" />
@@ -36,7 +36,7 @@ export default function ResetPasswordScreen() {
                 </View>
 
                 <View style={styles.containerButton}>
-                    <TouchableOpacity style={styles.button}><Text style={styles.textButton}>Enviar</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("SendEmailPasswordScreen")}><Text style={styles.textButton}>Enviar</Text></TouchableOpacity>
                 </View>
                 
                 <View style={styles.containerLogo}>

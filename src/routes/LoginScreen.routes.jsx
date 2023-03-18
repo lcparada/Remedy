@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import LoginScreen from "../screens/LoginScreen";
 import RegisterScreen from "../screens/RegisterScreen";
 import ResetPasswordScreen from "../screens/ResetPasswordScreen";
+import SendEmailPasswordScreen from "../screens/SendEmailPasswordScreen";
 
 const Stack = createStackNavigator();
 
@@ -28,6 +29,9 @@ export default function LoginScreenRoutes() {
                         marginBottom: 3
                     }
                 }} />
+                <Stack.Screen name="SendEmailPasswordScreen" component={SendEmailPasswordScreen} options={{
+                    headerShown: false
+                }}/>
             </Stack.Navigator>
         </NavigationContainer>
     );
