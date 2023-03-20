@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
   containerEvent: {
     marginLeft: 30,
     marginTop: 30,
+    marginBottom: 15,
   },
   textEvent: {
     fontSize: 24,

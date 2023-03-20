@@ -14,7 +14,7 @@ const pills = [
     dosage: 875,
     unitDosage: "mg",
     takeAt: moment().add(10, "minute").subtract(3, "hour"),
-    isTake: false,
+    isTake: true,
     id: 1,
   },
   {
@@ -22,7 +22,7 @@ const pills = [
     dosage: 875,
     unitDosage: "mg",
     takeAt: new Date().getDate(),
-    isTake: false,
+    isTake: true,
     id: 2,
   },
   {
@@ -30,7 +30,7 @@ const pills = [
     dosage: 875,
     unitDosage: "mg",
     takeAt: new Date().getDate(),
-    isTake: false,
+    isTake: true,
     id: 3,
   },
 ];
@@ -42,10 +42,8 @@ export default function HomeScreen() {
 
       <View>
         <View style={style.containerText}>
-          <Text style={style.mainText}>Olá, </Text>
-          <Text style={style.mainText}>
-            bom dia, <Text style={style.usernameText}>Lucas!☀️</Text>{" "}
-          </Text>
+          <Text style={style.mainText}>Olá,{"\n"}bom dia, <Text style={style.usernameText}>Lucas!☀️</Text>{" "}
+            </Text>
         </View>
 
         <View style={style.containerTextEvent}>
@@ -65,14 +63,12 @@ export default function HomeScreen() {
               <View style={style.pill}>
                 <View>
                   <Text style={style.descriptionPill}>{item.name}</Text>
-                  <Text style={style.subDescriptionPill}>
-                    {item.dosage} {item.unitDosage}
-                  </Text>
+                  <Text style={style.subDescriptionPill}>{item.dosage} {item.unitDosage} </Text>
                 </View>
 
-                {item.isTake ? (
+                {item.isTake === true ? (
                   <View style={style.timePill}>
-                    <Text style={style.statusTextSucess}>Concluído</Text>/
+                    <Text style={style.statusTextSucess}>Concluído</Text>
                     <AntDesign name="checkcircleo" size={20} color="#0B6E4F" />
                   </View>
                 ) : item.isTake === false &&
@@ -110,7 +106,7 @@ export default function HomeScreen() {
                       style={{ marginTop: 10 }}
                     />
                   </View>
-                ) : null}
+                ) : null }
               </View>
             );
           }}
