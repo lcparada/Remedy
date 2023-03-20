@@ -1,9 +1,12 @@
 import React from "react";
-import { SafeAreaView, View, Text, FlatList, StatusBar } from "react-native";
+import { SafeAreaView, View, Text, FlatList, StatusBar, TouchableOpacity } from "react-native";
 import moment from "moment";
 
 import style from "./style";
+
 import { AntDesign } from "@expo/vector-icons";
+import { Ionicons } from '@expo/vector-icons';
+
 
 import Calendar from "../../components/Calendar";
 import FloatBottom from "../../components/FloatBottom";
@@ -35,7 +38,7 @@ const pills = [
   },
 ];
 
-export default function HomeScreen() {
+export default function HomeScreen({navigation}) {
   return (
     <SafeAreaView style={style.container}>
       <StatusBar style="auto" />
@@ -44,6 +47,7 @@ export default function HomeScreen() {
         <View style={style.containerText}>
           <Text style={style.mainText}>Olá,{"\n"}bom dia, <Text style={style.usernameText}>Lucas!☀️</Text>{" "}
             </Text>
+          <TouchableOpacity><Ionicons name="ios-person-circle-sharp" size={55} color="#68A6DA" /></TouchableOpacity>  
         </View>
 
         <View style={style.containerTextEvent}>

@@ -2,10 +2,12 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { Feather } from "@expo/vector-icons";
+import { Ionicons } from '@expo/vector-icons'; 
 
 import HomeScreen from "../screens/HomeScreen";
 import ReportScreen from "../screens/ReportScreen";
 import DrawerScreen from "../screens/DrawerScreen";
+import ProfileScreen from "../screens/ProfileScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -16,7 +18,7 @@ export default function AppRoutes() {
           headerShown: false,
           tabBarShowLabel: false,
           tabBarStyle: {
-            height: 76,
+            height: 80,
           },
         }}
       >
@@ -59,6 +61,18 @@ export default function AppRoutes() {
             },
           }}
         />
+        <Tab.Screen 
+        name="perfil"
+        component={ProfileScreen} 
+        options={{
+          tabBarIcon: ({ color, size, focused}) => {
+            if(focused) {
+              return <Ionicons name="person-outline" size={size} color={color} />
+            } else {
+              return <Ionicons name="person-outline" size={size} color="black"/>
+            }
+          }
+        }}/>
       </Tab.Navigator>
   );
 }
