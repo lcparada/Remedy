@@ -1,6 +1,5 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NavigationContainer } from "@react-navigation/native";
 
 import { Feather } from "@expo/vector-icons";
 
@@ -12,7 +11,6 @@ const Tab = createBottomTabNavigator();
 
 export default function AppRoutes() {
   return (
-    <NavigationContainer>
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
@@ -62,6 +60,5 @@ export default function AppRoutes() {
           }}
         />
       </Tab.Navigator>
-    </NavigationContainer>
   );
 }
