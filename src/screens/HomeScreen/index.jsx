@@ -38,7 +38,7 @@ const pills = [
   },
 ];
 
-export default function HomeScreen({navigation}) {
+export default function HomeScreen() {
   return (
     <SafeAreaView style={style.container}>
       <StatusBar style="auto" />
@@ -46,8 +46,8 @@ export default function HomeScreen({navigation}) {
       <View>
         <View style={style.containerText}>
           <Text style={style.mainText}>Olá,{"\n"}bom dia, <Text style={style.usernameText}>Lucas!☀️</Text>{" "}
-            </Text>
-          <TouchableOpacity><Ionicons name="ios-person-circle-sharp" size={55} color="#68A6DA" /></TouchableOpacity>  
+          </Text>
+          <Ionicons name="ios-person-circle-sharp" size={55} color="#68A6DA" />
         </View>
 
         <View style={style.containerTextEvent}>
@@ -77,9 +77,9 @@ export default function HomeScreen({navigation}) {
                   </View>
                 ) : item.isTake === false &&
                   moment(item.takeAt).unix() >=
-                    moment().subtract(3, "hours").unix() &&
+                  moment().subtract(3, "hours").unix() &&
                   moment(item.takeAt).unix() <=
-                    moment().subtract(3, "hours").add(10, "minutes").unix() ? (
+                  moment().subtract(3, "hours").add(10, "minutes").unix() ? (
                   <View style={style.timePill}>
                     <Text style={style.statusTextSoon}>
                       Em{" "}
@@ -110,7 +110,7 @@ export default function HomeScreen({navigation}) {
                       style={{ marginTop: 10 }}
                     />
                   </View>
-                ) : null }
+                ) : null}
               </View>
             );
           }}

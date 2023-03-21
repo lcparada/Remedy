@@ -1,7 +1,6 @@
 import React from "react";
 
 import ConnectLoginWithHome from "./src/routes/ConnectLoginWithHome.routes";
-import ProfileScreen from "./src/screens/ProfileScreen";
 
 import {
   useFonts,
@@ -27,6 +26,5 @@ export default function App() {
 
   return (
     <ConnectLoginWithHome />
-    // <ProfileScreen />
   )
 }

@@ -20,8 +20,19 @@ export default function LoginScreen({ navigation }) {
     React.useState("eye-off-outline");
   const [showDigits, setshowDigits] = React.useState(true);
 
-  const [userName, setUserName] = React.useState(null);
+  const [username, setUsername] = React.useState(null);
   const [password, setPassword] = React.useState(null);
+  const [error, setError] = React.useState(null)
+
+  function verificationInput() {
+    if (username === "" || username === null || password === null || password === "") {
+      setError("*Os campos devem ser preenchidos*")
+      return false
+    } else {
+      navigation.navigate("AppRoutes")
+      setError(null)
+    }
+  }
 
   function showPassword() {
     if (showPasswordOrNot === "eye-off-outline") {
@@ -46,13 +57,17 @@ export default function LoginScreen({ navigation }) {
           />
         </View>
 
+        <View style={styles.containerError}>
+          <Text style={styles.error}>{error}</Text>
+        </View>
+
         <View style={styles.containerInput}>
           <View style={styles.inputUser}>
             <TextInput
               style={styles.input}
               placeholder="Usuário"
-              onChangeText={setUserName}
-              value={userName}
+              onChangeText={setUsername}
+              value={username}
             ></TextInput>
             <Ionicons name="person-outline" size={24} color="#929292" />
           </View>
@@ -71,8 +86,8 @@ export default function LoginScreen({ navigation }) {
           </View>
         </View>
 
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("AppRoutes")}>
-          <Text style={styles.buttonText} >ENTRAR</Text>
+        <TouchableOpacity style={styles.button} onPress={verificationInput}>
+          <Text style={styles.buttonText}>ENTRAR</Text>
         </TouchableOpacity>
 
         <View style={styles.forgotPassword}>

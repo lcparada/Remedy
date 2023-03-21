@@ -9,6 +9,15 @@ const styles = StyleSheet.create({
   logo: {
     alignItems: "center",
   },
+  containerError: {
+    marginBottom: 10,
+    alignItems: "center"
+  },
+  error: {
+    fontSize: 12,
+    fontFamily: "Lexend_400Regular",
+    color: "red"
+  },
   input: {
     width: 265,
     height: 40,
