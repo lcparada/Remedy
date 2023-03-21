@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   register: {
     alignItems: "center",
     justifyContent: "center",
-    top: 175
+    top: 160
   },
   textRegister: {
     color: "#68A6DA",
