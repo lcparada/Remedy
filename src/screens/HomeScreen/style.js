@@ -14,10 +14,12 @@ const style = StyleSheet.create({
   mainText: {
     fontSize: 22,
     fontFamily: "Lexend_300Light",
+    color: "#333333"
   },
   usernameText: {
     fontSize: 22,
     fontFamily: "Lexend_700Bold",
+    color: "#333333"
   },
   containerTextEvent: {
     marginTop: 20,
@@ -110,6 +112,7 @@ const style = StyleSheet.create({
   subDescriptionPill: {
     fontSize: 14,
     fontFamily: "Lexend_400Regular",
+    color: "#333333"
   },
   statusTextSoon: {
     fontSize: 12,

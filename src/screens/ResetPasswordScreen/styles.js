@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     mainText: {
         fontSize: 35,
         fontFamily: "Lexend_700Bold",
+        color: "#333333"
     },
     containerSubText: {
         marginTop: 15,

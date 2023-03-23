@@ -14,6 +14,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 
 import styles from "./styles";
+import { KeyboardAvoidingView } from "react-native";
 
 export default function LoginScreen({ navigation }) {
   const [showPasswordOrNot, setShowPasswordOrNot] =
@@ -22,15 +23,20 @@ export default function LoginScreen({ navigation }) {
 
   const [username, setUsername] = React.useState(null);
   const [password, setPassword] = React.useState(null);
-  const [error, setError] = React.useState(null)
+  const [error, setError] = React.useState(null);
 
   function verificationInput() {
-    if (username === "" || username === null || password === null || password === "") {
-      setError("*Os campos devem ser preenchidos*")
-      return false
+    if (
+      username === "" ||
+      username === null ||
+      password === null ||
+      password === ""
+    ) {
+      setError("*Os campos devem ser preenchidos*");
+      return false;
     } else {
-      navigation.navigate("AppRoutes")
-      setError(null)
+      navigation.navigate("AppRoutes");
+      setError(null);
     }
   }
 
@@ -91,7 +97,9 @@ export default function LoginScreen({ navigation }) {
         </TouchableOpacity>
 
         <View style={styles.forgotPassword}>
-          <TouchableOpacity onPress={() => navigation.navigate("ResetPassword")}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("ResetPassword")}
+          >
             <Text style={styles.textForgotPassword}>Esqueceu a senha?</Text>
           </TouchableOpacity>
         </View>

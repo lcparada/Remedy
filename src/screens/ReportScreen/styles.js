@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
   mainText: {
     fontSize: 28,
     fontFamily: "Lexend_600SemiBold",
+    color: "#333333"
   },
   subContainerText: {
     marginLeft: 30,
@@ -19,6 +20,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontSize: 20,
     fontFamily: "Lexend_400Regular",
+    color: "#333333"
   },
   percent: {
     color: "#68A6DA",
@@ -39,7 +41,8 @@ const styles = StyleSheet.create({
   },
   textEvent: {
     fontSize: 24,
-    fontFamily: "Lexend_400Regular"
+    fontFamily: "Lexend_400Regular",
+    color: "#333333"
   },
   descriptionPill: {
     marginLeft: 30,

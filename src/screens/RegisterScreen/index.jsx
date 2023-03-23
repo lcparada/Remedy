@@ -39,41 +39,42 @@ export default function RegisterScreen({ navigation }) {
           <MaterialCommunityIcons name="pill" size={77} color="#68A6DA" />
         </View>
 
-        <View style={styles.registerForm}>
-          <View style={styles.containerUser}>
-            <MaterialCommunityIcons
-              name="account-outline"
-              size={24}
-              color="#929292"
-            />
-            <TextInput
-              placeholder="Usuário"
-              style={styles.inputUser}
-            ></TextInput>
-          </View>
+        <View style={styles.containerUser}>
+          <MaterialCommunityIcons
+            name="account-outline"
+            size={24}
+            color="#929292"
+          />
+          <TextInput placeholder="Usuário" style={styles.inputUser}></TextInput>
+        </View>
 
-          <View style={styles.containerEmail}>
-            <Feather name="at-sign" size={22} color="#929292" />
-            <TextInput
-              placeholder="Email"
-              style={styles.inputEmail}
-            ></TextInput>
-          </View>
+        <View style={styles.containerEmail}>
+          <Feather name="at-sign" size={20} color="#929292" />
+          <TextInput placeholder="Email" style={styles.inputEmail}></TextInput>
+        </View>
 
-          <View style={styles.containerPassword}>
-            <Feather name="lock" size={22} color="#929292" />
-            <TextInput
-              placeholder="Senha"
-              style={styles.linePassword}
-              secureTextEntry={showDigits}
-            ></TextInput>
-            <TouchableOpacity
-              onPress={showPassword}
-              style={{ marginLeft: 155 }}
-            >
-              <Ionicons name={showPasswordOrNot} size={22} color="#929292" />
-            </TouchableOpacity>
-          </View>
+        <View style={styles.containerPassword}>
+          <Feather name="lock" size={20} color="#929292" />
+          <TextInput
+            placeholder="Senha"
+            secureTextEntry={showDigits}
+            style={styles.inputPassword}
+          ></TextInput>
+          <TouchableOpacity onPress={showPassword} style={{ marginLeft: -20 }}>
+            <Ionicons name={showPasswordOrNot} size={22} color="#929292" />
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.containerRepassword}>
+          <Feather name="lock" size={20} color="#929292" />
+          <TextInput
+            placeholder="Confirme a senha"
+            secureTextEntry={showDigits}
+            style={styles.inputRepassword}
+          ></TextInput>
+          <TouchableOpacity onPress={showPassword} style={{ marginLeft: -20 }}>
+            <Ionicons name={showPasswordOrNot} size={22} color="#929292" />
+          </TouchableOpacity>
         </View>
 
         <View style={styles.containerButton}>

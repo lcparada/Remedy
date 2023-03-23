@@ -1,12 +1,19 @@
 import React from "react";
-import { SafeAreaView, View, Text, FlatList, StatusBar, TouchableOpacity } from "react-native";
+import {
+  SafeAreaView,
+  View,
+  Text,
+  FlatList,
+  StatusBar,
+  TouchableOpacity,
+} from "react-native";
 import moment from "moment";
+import * as Location from "expo-location";
 
 import style from "./style";
 
 import { AntDesign } from "@expo/vector-icons";
-import { Ionicons } from '@expo/vector-icons';
-
+import { Ionicons } from "@expo/vector-icons";
 
 import Calendar from "../../components/Calendar";
 import FloatBottom from "../../components/FloatBottom";
@@ -39,13 +46,31 @@ const pills = [
 ];
 
 export default function HomeScreen() {
+  const [location, setLocation] = React.useState();
+  const [address, setAddress] = React.useState();
+
+  React.useEffect(() => {
+    const getPermissions = async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        console.log("Please granted location permissions");
+        return;
+      }
+      let location = await Location.getCurrentPositionAsync({});
+      let adress = await Location.reverseGeocodeAsync(location.coords);
+      setAddress(adress);
+    };
+    getPermissions();
+  }, []);
+
   return (
     <SafeAreaView style={style.container}>
       <StatusBar style="auto" />
 
       <View>
         <View style={style.containerText}>
-          <Text style={style.mainText}>Olá,{"\n"}bom dia, <Text style={style.usernameText}>Lucas!☀️</Text>{" "}
+          <Text style={style.mainText}>
+            Olá,{"\n"}bom dia, <Text style={style.usernameText}>Lucas!☀️</Text>{" "}
           </Text>
           <Ionicons name="ios-person-circle-sharp" size={55} color="#68A6DA" />
         </View>
@@ -67,7 +92,9 @@ export default function HomeScreen() {
               <View style={style.pill}>
                 <View>
                   <Text style={style.descriptionPill}>{item.name}</Text>
-                  <Text style={style.subDescriptionPill}>{item.dosage} {item.unitDosage} </Text>
+                  <Text style={style.subDescriptionPill}>
+                    {item.dosage} {item.unitDosage}{" "}
+                  </Text>
                 </View>
 
                 {item.isTake === true ? (
@@ -77,9 +104,9 @@ export default function HomeScreen() {
                   </View>
                 ) : item.isTake === false &&
                   moment(item.takeAt).unix() >=
-                  moment().subtract(3, "hours").unix() &&
+                    moment().subtract(3, "hours").unix() &&
                   moment(item.takeAt).unix() <=
-                  moment().subtract(3, "hours").add(10, "minutes").unix() ? (
+                    moment().subtract(3, "hours").add(10, "minutes").unix() ? (
                   <View style={style.timePill}>
                     <Text style={style.statusTextSoon}>
                       Em{" "}

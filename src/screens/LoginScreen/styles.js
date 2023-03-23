@@ -76,7 +76,8 @@ const styles = StyleSheet.create({
   subTextRegister: {
     alignItems: "center",
     fontSize: 14,
-    fontFamily: "Lexend_300Light"
+    fontFamily: "Lexend_300Light",
+    color: "#333333"
   }
 });
 

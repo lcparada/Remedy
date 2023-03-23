@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
   mainText: {
     fontSize: 28,
     fontFamily: "Lexend_600SemiBold",
+    color: "#333333"
   },
   containerButtons: {
     flexDirection: "row",
@@ -48,7 +49,8 @@ const styles = StyleSheet.create({
   },
   prescriptionSubTextScreen: {
     fontSize: 14,
-    fontFamily: "Lexend_400Regular"
+    fontFamily: "Lexend_400Regular",
+    color: "#333333"
   },
   statusPrescription: {
     marginRight: 32,

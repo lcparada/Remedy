@@ -7,32 +7,41 @@ import ResetPasswordScreen from "../screens/ResetPasswordScreen";
 import SendEmailPasswordScreen from "../screens/SendEmailPasswordScreen";
 import AppRoutes from "./app.routes";
 
-
 const Stack = createStackNavigator();
 
 export default function LoginScreenRoutes() {
-    return (
-            <Stack.Navigator initialRouteName="Login">
-                <Stack.Screen name="Login" component={LoginScreen} options={{
-                    headerShown: false
-                }} />
-                <Stack.Screen name="Register" component={RegisterScreen} options={{
-                    headerShown: false
-                }} />
-                <Stack.Screen name="ResetPassword" component={ResetPasswordScreen} options={{
-                    headerTransparent: true,
-                    headerTitle: "Voltar",
-                    headerTitleStyle: {
-                        fontFamily:"Lexend_400Regular",
-                        fontSize: 16,
-                        marginLeft: -25,
-                        marginBottom: 3
-                    }
-                }} />
-                <Stack.Screen name="SendEmailPasswordScreen" component={SendEmailPasswordScreen} options={{
-                    headerShown: false
-                }}/>
-                <Stack.Screen name="HomeScreen" component={AppRoutes}/>
-            </Stack.Navigator>
-    );
+  return (
+    <Stack.Navigator initialRouteName="Login">
+      <Stack.Screen
+        name="Login"
+        component={LoginScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Register"
+        component={RegisterScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="ResetPassword"
+        component={ResetPasswordScreen}
+        options={{
+          headerTransparent: true,
+          headerTitle: "",
+        }}
+      />
+      <Stack.Screen
+        name="SendEmailPasswordScreen"
+        component={SendEmailPasswordScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen name="HomeScreen" component={AppRoutes} />
+    </Stack.Navigator>
+  );
 }

@@ -48,7 +48,7 @@ export default function DrawerScreen() {
             <Feather
               name="paperclip"
               size={24}
-              color={screen === 0 ? "#68A6DA" : "black"}
+              color={screen === 0 ? "#68A6DA" : "#333333"}
             />{" "}
             Receituários
           </Text>
@@ -60,7 +60,7 @@ export default function DrawerScreen() {
             <Feather
               name="package"
               size={24}
-              color={screen === 1 ? "#68A6DA" : "black"}
+              color={screen === 1 ? "#68A6DA" : "#333333"}
             />{" "}
             Medicamentos
           </Text>

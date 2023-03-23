@@ -12,24 +12,25 @@ const styles = StyleSheet.create({
         backgroundColor: "#68A6DA",
         borderRadius: 20,
         alignItems: "center",
-        justifyContent:"center"
+        justifyContent: "center"
     },
     containerMainText: {
         marginTop: 60,
     },
     mainText: {
         fontSize: 25,
-        fontFamily: "Lexend_700Bold"
+        fontFamily: "Lexend_700Bold",
+        color: "#333333"
     },
     containerSubText: {
         marginTop: 10,
-        
     },
     subText: {
         fontSize: 15,
         fontFamily: "Lexend_400Regular",
         color: "#99A0A8",
-        paddingHorizontal: 12,
+        paddingHorizontal: 70,
+        textAlign: "center"
     },
     containerButton: {
         marginTop: 20

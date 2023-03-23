@@ -11,48 +11,63 @@ const styles = StyleSheet.create({
   logo: {
     marginTop: 60
   },
-  registerForm: {
-    width: 330,
-    height: 280,
-    elevation: 1,
-    marginTop: 65,
-    borderTopLeftRadius: 20,
-    borderBottomRightRadius: 20,
-    paddingHorizontal: 30,
-    paddingVertical: 56
-  },
   containerUser: {
     flexDirection: "row",
     alignItems: "center",
     columnGap: 10,
-    borderBottomColor: "black",
-    borderBottomWidth: 1
+    width: 300,
+    height: 60,
+    backgroundColor: "#F5F7F9",
+    borderRadius: 10,
+    paddingLeft: 20,
+    marginTop: 120,
   },
   inputUser : {
     fontFamily: "Lexend_300Light",
-    width: 220
+    width: 220,
   },
   containerEmail: {
     flexDirection: "row",
     alignItems: "center",
     columnGap: 10,
-    borderBottomColor: "black",
-    borderBottomWidth: 1,
-    marginTop: 45
+    width: 300,
+    height: 60,
+    backgroundColor: "#F5F7F9",
+    borderRadius: 10,
+    padding: 20,
+    marginTop: 20
   },
   inputEmail: {
     fontFamily: "Lexend_300Light",
-    width: 220
+    width: 220,
   },
   containerPassword: {
     flexDirection: "row",
     alignItems: "center",
     columnGap: 10,
-    borderBottomColor: "black",
-    borderBottomWidth: 1,
-    marginTop: 45
+    width: 300,
+    height: 60,
+    backgroundColor: "#F5F7F9",
+    borderRadius: 10,
+    marginTop: 20,
+    paddingLeft: 20
   },
   inputPassword: {
+    fontFamily: "Lexend_300Light",
+    width: 220
+  },
+  containerRepassword: {
+    flexDirection: "row",
+    alignItems: "center",
+    columnGap: 10,
+    width: 300,
+    height: 60,
+    backgroundColor: "#F5F7F9",
+    borderRadius: 10,
+    marginTop: 20,
+    paddingLeft: 20
+  },
+  inputRepassword: {
     fontFamily: "Lexend_300Light",
     width: 220
   },
@@ -76,8 +91,8 @@ const styles = StyleSheet.create({
     alignItems:"center",
     justifyContent: "center",
     fontFamily: "Lexend_300Light",
-    fontSize: 15
-    
+    fontSize: 15,
+    color: "#333333"
   },
   buttonAlreadyAccount : {
     alignItems:"center",
