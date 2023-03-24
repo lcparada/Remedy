@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, TouchableWithoutFeedback, Animated } from "react-native";
+import { View, TouchableWithoutFeedback, Animated } from "react-native";
 
 import styles from "./styles";
 import { Feather } from "@expo/vector-icons";

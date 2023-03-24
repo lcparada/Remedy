@@ -14,22 +14,19 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 
 import styles from "./styles";
-import { KeyboardAvoidingView } from "react-native";
 
 export default function LoginScreen({ navigation }) {
   const [showPasswordOrNot, setShowPasswordOrNot] =
     React.useState("eye-off-outline");
   const [showDigits, setshowDigits] = React.useState(true);
 
-  const [username, setUsername] = React.useState(null);
-  const [password, setPassword] = React.useState(null);
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
   const [error, setError] = React.useState(null);
 
   function verificationInput() {
     if (
       username === "" ||
-      username === null ||
-      password === null ||
       password === ""
     ) {
       setError("*Os campos devem ser preenchidos*");

@@ -9,7 +9,7 @@ const style = StyleSheet.create({
     marginTop: Platform.OS === "android" ? 90 : 40,
     marginLeft: 30,
     flexDirection: "row",
-    columnGap: 80
+    columnGap: 40
   },
   mainText: {
     fontSize: 22,

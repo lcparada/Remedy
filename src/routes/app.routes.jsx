@@ -16,10 +16,12 @@ export default function AppRoutes() {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarShowLabel: false,
         tabBarStyle: {
           height: 80,
         },
+        tabBarLabelStyle: {
+          bottom: 15
+        }
       }}
     >
       <Tab.Screen
@@ -36,7 +38,7 @@ export default function AppRoutes() {
         }}
       />
       <Tab.Screen
-        name="relatorio"
+        name="relatório"
         component={ReportScreen}
         options={{
           tabBarIcon: ({ color, size, focused }) => {

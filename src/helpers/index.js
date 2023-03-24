@@ -48,3 +48,7 @@ export function calculateTimeIntervalBetweenSevenDays(date) {
     ];
   }
 }
+
+export function getHourNowWithUTC() {
+  return moment().hour()
+}

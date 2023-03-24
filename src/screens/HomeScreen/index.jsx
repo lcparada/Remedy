@@ -17,6 +17,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 import Calendar from "../../components/Calendar";
 import FloatBottom from "../../components/FloatBottom";
+import { getHourNowWithUTC } from "../../helpers";
 
 const pills = [
   {
@@ -49,6 +50,26 @@ export default function HomeScreen() {
   const [location, setLocation] = React.useState();
   const [address, setAddress] = React.useState();
 
+  const [textDay, setTextDay] = React.useState();
+  const [emojiDay, setEmojiDay] = React.useState();
+
+  React.useEffect(() => {
+    let momentDay = getHourNowWithUTC();
+    if (momentDay >= 0 && momentDay <= 6) {
+      setTextDay("boa noite");
+      setEmojiDay("🌙")
+    } else if (momentDay > 6 && momentDay <= 12) {
+      setTextDay("bom dia");
+      setEmojiDay("☀️")
+    } else if (momentDay > 12 && momentDay <= 18) {
+      setTextDay("boa tarde");
+      setEmojiDay("☀️")
+    } else if (momentDay > 18 && momentDay <= 23) {
+      setTextDay("boa noite");
+      setEmojiDay("🌙")
+    }
+  }, []);
+
   React.useEffect(() => {
     const getPermissions = async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
@@ -70,9 +91,10 @@ export default function HomeScreen() {
       <View>
         <View style={style.containerText}>
           <Text style={style.mainText}>
-            Olá,{"\n"}bom dia, <Text style={style.usernameText}>Lucas!☀️</Text>{" "}
+            Olá,{"\n"}{textDay},{" "}
+            <Text style={style.usernameText}>Lucas! {emojiDay}</Text>{" "}
           </Text>
-          <Ionicons name="ios-person-circle-sharp" size={55} color="#68A6DA" />
+          <Ionicons name="ios-person-circle-sharp" size={65} color="#68A6DA" />
         </View>
 
         <View style={style.containerTextEvent}>
