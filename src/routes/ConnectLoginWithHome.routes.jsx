@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 
 const Stack = createStackNavigator();
 
-import AppRoutes from "./app.routes";
+import { AppRoutes } from "./app.routes";
 import LoginScreenRoutes from "./LoginScreen.routes";
 
 export default function ConnectLoginWithHome() {
