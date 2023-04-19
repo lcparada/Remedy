@@ -1,6 +1,8 @@
 import React from "react";
 
-import ConnectLoginWithHome from "./src/routes/ConnectLoginWithHome.routes";
+import { RootRoutes } from "./src/routes/root.routes";
+
+import RemedyProvider from "./src/contexts/remedy";
 
 import {
   useFonts,
@@ -25,6 +27,8 @@ export default function App() {
   }
 
   return (
-    <ConnectLoginWithHome />
-  )
+    <RemedyProvider>
+      <RootRoutes />
+    </RemedyProvider>
+  );
 }
