@@ -5,22 +5,29 @@ import {
   TouchableOpacity,
   StatusBar,
   SafeAreaView,
+  FlatList,
 } from "react-native";
 
 import { Feather } from "@expo/vector-icons";
 
 import styles from "./styles";
 
-import FloatBottom from "../../components/FloatBottom";
+import { useContext } from "react";
+
+import { RemedyContext } from "../../contexts/remedy";
+
+import FabButtonMedicine from "../../components/FabButtonMedicine";
+
+import Prescriptions from "../../components/FlatListModels/Prescriptions";
+
+import FabButtonPrescription from "../../components/FabButtonPrescription";
+
+import Medicine from "../../components/FlatListModels/Medicine";
 
 export default function DrawerScreen() {
   const [screen, setScreen] = React.useState(0);
 
-  const selectText = {
-    fontSize: 18,
-    fontFamily: "Lexend_600SemiBold",
-    color: "#68A6DA",
-  };
+  const { allMedicines, allPrescriptions } = useContext(RemedyContext);
 
   function handleScreenPrescription() {
     if (screen !== 0) {
@@ -43,7 +50,7 @@ export default function DrawerScreen() {
 
       <View style={styles.containerButtons}>
         <TouchableOpacity onPress={() => handleScreenPrescription()}>
-          <Text style={screen === 0 ? selectText : styles.textButton}>
+          <Text style={screen === 0 ? styles.selectText : styles.textButton}>
             {" "}
             <Feather
               name="paperclip"
@@ -55,7 +62,7 @@ export default function DrawerScreen() {
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => handleScreenMedicine()}>
-          <Text style={screen === 1 ? selectText : styles.textButton}>
+          <Text style={screen === 1 ? styles.selectText : styles.textButton}>
             {" "}
             <Feather
               name="package"
@@ -68,96 +75,44 @@ export default function DrawerScreen() {
       </View>
 
       {screen === 0 ? (
-        <View title="prescriptionTotal">
-          <View style={styles.prescriptionScreen}>
-            <View>
-              <Text style={styles.prescriptionTextScreen}>
-                Infecções{"\n"}gastrointestinais
-              </Text>
-              <Text style={styles.prescriptionSubTextScreen}>
-                Criado em 30/12/2022
-              </Text>
-            </View>
-            <View style={styles.statusPrescription}>
-              <Text style={styles.statusPrescriptionTextProgress}>
-                Em andamento
-              </Text>
-              <Feather name="clock" size={18} color="#F6D664" />
-            </View>
-          </View>
+        <View>
+          <FlatList
+            data={allPrescriptions}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <Prescriptions
+                tratamentIllness={item.tratamentIllness}
+                date={item.date}
+                medicines={item.medicines}
+                nameDoctor={item.nameDoctor}
+                symptoms={item.symptoms}
+                observations={item.observations}
+                situation={item.situation}
+                id={item.id}
+              />
+            )}
+          />
 
-          <View style={styles.prescriptionScreen}>
-            <View>
-              <Text style={styles.prescriptionTextScreen}>Resfriado</Text>
-              <Text style={styles.prescriptionSubTextScreen}>
-                Criado em 20/12/2022
-              </Text>
-            </View>
-            <View style={styles.statusPrescription}>
-              <Text style={styles.statusPrescriptionTextFinished}>
-                Finalizado
-              </Text>
-              <Feather name="check-circle" size={18} color="#0B6E4F" />
-            </View>
-          </View>
-
-          <View style={styles.prescriptionScreen}>
-            <View>
-              <Text style={styles.prescriptionTextScreen}>Resfriado</Text>
-              <Text style={styles.prescriptionSubTextScreen}>
-                Criado em 20/12/2022
-              </Text>
-            </View>
-            <View style={styles.statusPrescription}>
-              <Text style={styles.statusPrescriptionTextAbandoned}>
-                Abandonado
-              </Text>
-              <Feather name="alert-circle" size={18} color="#721817" />
-            </View>
-          </View>
+          <FabButtonPrescription />
         </View>
       ) : (
-        <View title="medicineTotal">
-          <View style={styles.medicineScreen}>
-            <Text style={styles.medicineTextScreen}>Amoxilina</Text>
-
-            <View style={styles.medicineStatus}>
-              <Feather name="check-circle" size={18} color="#0B6E4F" />
-              <Text style={styles.medicineStatusTextScreenEnough}>
-                Suficiente
-              </Text>
-            </View>
-
-            <Text style={styles.medicineTextStatus}>
-              • Você contêm 30 comprimidos.
-            </Text>
-
-            <Text style={styles.medicineTextStatus}>
-              • Você precisa de 20 comprimidos para concluir seus tratamentos
-            </Text>
-          </View>
-
-          <View style={styles.medicineScreen}>
-            <Text style={styles.medicineTextScreen}>Amoxilina</Text>
-
-            <View style={styles.medicineStatus}>
-              <Feather name="alert-circle" size={18} color="#721817" />
-              <Text style={styles.medicineStatusTextScreenInsufficient}>
-                Insuficiente
-              </Text>
-            </View>
-
-            <Text style={styles.medicineTextStatus}>
-              • Você contêm 30 comprimidos.
-            </Text>
-
-            <Text style={styles.medicineTextStatus}>
-              • Você precisa de 20 comprimidos para concluir seus tratamentos
-            </Text>
-          </View>
+        <View>
+          <FlatList
+            contentContainerStyle={{ paddingBottom: 250 }}
+            data={allMedicines}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <Medicine
+                name={item.name}
+                daysMedicine={item.daysMedicine}
+                timerMedicine={item.timerMedicine}
+                amountMedicine={item.amountMedicine}
+              />
+            )}
+          />
+          <FabButtonMedicine />
         </View>
       )}
-      <FloatBottom />
     </SafeAreaView>
   );
 }
