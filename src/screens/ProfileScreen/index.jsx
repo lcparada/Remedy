@@ -7,8 +7,11 @@ import { Ionicons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
-export default function ProfileScreen({ navigation }) {
+export default function ProfileScreen() {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.containerMainText}>
@@ -35,7 +38,7 @@ export default function ProfileScreen({ navigation }) {
       <View style={styles.options}>
         <TouchableOpacity
           style={styles.containerEditProfile}
-          onPress={() => navigation.navigate("EditProfile")}
+          onPress={() => navigation.navigate("EditProfileScreen")}
         >
           <View style={styles.circle}>
             <Feather name="edit-3" size={22} color="white" />
@@ -44,8 +47,8 @@ export default function ProfileScreen({ navigation }) {
         </TouchableOpacity>
 
         <TouchableOpacity
+          onPress={() => navigation.navigate("ChangePasswordScreen")}
           style={styles.containerResetPassword}
-          onPress={() => navigation.navigate("ChangePassword")}
         >
           <View style={styles.circle}>
             <Feather name="lock" size={22} color="white" />
@@ -54,8 +57,8 @@ export default function ProfileScreen({ navigation }) {
         </TouchableOpacity>
 
         <TouchableOpacity
+          onPress={() => navigation.navigate("InformationAppScreen")}
           style={styles.containerInformationApp}
-          onPress={() => navigation.navigate("Information")}
         >
           <View style={styles.circle}>
             <MaterialCommunityIcons

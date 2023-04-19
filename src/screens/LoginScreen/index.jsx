@@ -14,8 +14,11 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 
 import styles from "./styles";
+import { useNavigation } from "@react-navigation/native";
 
-export default function LoginScreen({ navigation }) {
+export default function LoginScreen() {
+  const navigation = useNavigation();
+
   const [showPasswordOrNot, setShowPasswordOrNot] =
     React.useState("eye-off-outline");
   const [showDigits, setshowDigits] = React.useState(true);
@@ -24,18 +27,17 @@ export default function LoginScreen({ navigation }) {
   const [password, setPassword] = React.useState("");
   const [error, setError] = React.useState(null);
 
-  function verificationInput() {
-    if (
-      username === "" ||
-      password === ""
-    ) {
-      setError("*Os campos devem ser preenchidos*");
-      return false;
-    } else {
-      navigation.navigate("AppRoutes");
-      setError(null);
-    }
-  }
+  // function verificationInput() {
+  //   if (
+  //     username === "" ||
+  //     password === ""
+  //   ) {
+  //     setError("*Os campos devem ser preenchidos*");
+  //     return false;
+  //   } else {
+  //     setError(null);
+  //   }
+  // }
 
   function showPassword() {
     if (showPasswordOrNot === "eye-off-outline") {
@@ -89,13 +91,16 @@ export default function LoginScreen({ navigation }) {
           </View>
         </View>
 
-        <TouchableOpacity style={styles.button} onPress={verificationInput}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate("AppRoutes")}
+        >
           <Text style={styles.buttonText}>ENTRAR</Text>
         </TouchableOpacity>
 
         <View style={styles.forgotPassword}>
           <TouchableOpacity
-            onPress={() => navigation.navigate("ResetPassword")}
+            onPress={() => navigation.navigate("ResetPasswordScreen")}
           >
             <Text style={styles.textForgotPassword}>Esqueceu a senha?</Text>
           </TouchableOpacity>
@@ -103,7 +108,9 @@ export default function LoginScreen({ navigation }) {
 
         <View style={styles.register}>
           <Text style={styles.subTextRegister}>Ainda não tem conta?</Text>
-          <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("RegisterScreen")}
+          >
             <Text style={styles.textRegister}>Registre-se!</Text>
           </TouchableOpacity>
         </View>
