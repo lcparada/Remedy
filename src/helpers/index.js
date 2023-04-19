@@ -50,5 +50,28 @@ export function calculateTimeIntervalBetweenSevenDays(date) {
 }
 
 export function getHourNowWithUTC() {
-  return moment().hour()
+  return moment().hour();
+}
+
+export function addUnitOfMeasureInDosage(dosage) {
+  if (dosage >= 1000) {
+    return `${dosage / 1000} g`;
+  } else {
+    return `${dosage} mg`;
+  }
+}
+
+export function calculateNeededMedicine(
+  daysMedicine,
+  timerMedicine,
+  amountMedicine
+) {
+  const converterDaysInHours = 24 * Number(daysMedicine);
+  const amountMedicineTotalDays =
+    converterDaysInHours / Number(timerMedicine) + 1;
+  if (amountMedicineTotalDays > amountMedicine) {
+    return [amountMedicineTotalDays.toFixed(0), false];
+  } else {
+    return [amountMedicineTotalDays.toFixed(0), true];
+  }
 }
