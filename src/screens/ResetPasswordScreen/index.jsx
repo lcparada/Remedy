@@ -13,8 +13,11 @@ import {
 import styles from "./styles";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
-export default function ResetPasswordScreen({ navigation }) {
+export default function ResetPasswordScreen() {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />

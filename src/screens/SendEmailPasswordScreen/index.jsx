@@ -4,8 +4,11 @@ import React from "react";
 import styles from "./styles";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
-export default function SendEmailPasswordScreen({ navigation }) {
+export default function SendEmailPasswordScreen() {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.containerLogo}>
@@ -26,7 +29,7 @@ export default function SendEmailPasswordScreen({ navigation }) {
       <View style={styles.containerButton}>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate("Login")}
+          onPress={() => navigation.navigate("LoginScreen")}
         >
           <Text style={styles.textButton}>Ok</Text>
         </TouchableOpacity>
