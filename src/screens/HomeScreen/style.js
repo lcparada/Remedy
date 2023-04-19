@@ -9,17 +9,17 @@ const style = StyleSheet.create({
     marginTop: Platform.OS === "android" ? 90 : 40,
     marginLeft: 30,
     flexDirection: "row",
-    columnGap: 40
+    columnGap: 40,
   },
   mainText: {
     fontSize: 22,
     fontFamily: "Lexend_300Light",
-    color: "#333333"
+    color: "#333333",
   },
   usernameText: {
     fontSize: 22,
     fontFamily: "Lexend_700Bold",
-    color: "#333333"
+    color: "#333333",
   },
   containerTextEvent: {
     marginTop: 20,
@@ -112,26 +112,26 @@ const style = StyleSheet.create({
   subDescriptionPill: {
     fontSize: 14,
     fontFamily: "Lexend_400Regular",
-    color: "#333333"
+    color: "#333333",
   },
   statusTextSoon: {
     fontSize: 12,
     fontFamily: "Lexend_600SemiBold",
     color: "#F6D664",
-    marginRight: 8
+    marginRight: 8,
   },
   statusTextSucess: {
     fontSize: 12,
     fontFamily: "Lexend_600SemiBold",
     color: "#0B6E4F",
-    marginRight: 8
+    marginRight: 8,
   },
   statusTextLate: {
     fontSize: 12,
     fontFamily: "Lexend_600SemiBold",
     color: "#721817",
     textAlign: "right",
-    marginRight: 8
+    marginRight: 8,
   },
   timePill: {
     flexDirection: "row",
