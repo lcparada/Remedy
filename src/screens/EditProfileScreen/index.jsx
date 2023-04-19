@@ -37,16 +37,15 @@ export default function EditProfileScreen() {
     return () => {
       showSubscription.remove();
       hideSubscription.remove();
-      
     };
   }, []);
-
-  
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
-        style={styles.container} contentContainerStyle={{paddingBottom: keyboardHeight}}
+        style={styles.container}
+        contentContainerStyle={{ paddingBottom: keyboardHeight }}
+        showsVerticalScrollIndicator={false}
       >
         <Pressable style={styles.container} onPress={() => Keyboard.dismiss()}>
           <View style={styles.containerChangePhoto}>
