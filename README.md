@@ -1,2 +1,1 @@
-# Remedy
-App project to facility the life of people about pills
+Este aplicativo em desenvolvimento tem como objetivo auxiliar as pessoas a lembrarem o horário correto de tomar seus medicamentos. Com sua funcionalidade de lembrete, será possível manter um tratamento mais efetivo e consistente. Estamos trabalhando duro para concluir o desenvolvimento e lançar em breve este aplicativo que será uma grande ajuda para a saúde das pessoas.
